@@ -49,3 +49,30 @@ exports.getCricket=(req,res,next)=>{
     })
     .catch(err=>console.log(err))
 }
+
+exports.updateCricket=(req,res,next)=>{
+  const id=req.params.id;
+  console.log(id);
+  Cricket.findByPk(id)
+  .then(cricket=>{
+    console.log(id);
+    cricket.name = req.body.name;
+    cricket.dob = req.body.dob;
+    cricket.imgUrl = req.body.imgUrl;
+    cricket.birthPlace = req.body.birthPlace;
+    cricket.career = req.body.career;
+    cricket.matches = req.body.matches;
+    cricket.score = req.body.score;
+    cricket.fifties = req.body.fifties;
+    cricket.centuries = req.body.centuries;
+    cricket.wickets = req.body.wickets;
+    cricket.average = req.body.average;
+
+    cricket.save()
+    .then(result=>{
+      console.log("updated...");
+    })
+    .catch(err=>console.log(err));
+  })
+  .catch(err=>console.log(err))
+}

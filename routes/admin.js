@@ -6,7 +6,7 @@ const adminController = require('../controllers/admin');
 
 router.get('/get-cricket/:name', adminController.getCricket);
 router.post('/insert-cricket', adminController.insertCricket);
-//edit
+router.put('/update-cricket/:id',adminController.updateCricket);
 
 
 module.exports = router;
