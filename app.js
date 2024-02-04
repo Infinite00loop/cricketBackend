@@ -13,7 +13,7 @@ app.use(adminRoutes);
 
 
 
-//sequelize.sync({force:true})
+// sequelize.sync({force:true})
 sequelize.sync()
 .then(result=>{
     //console.log(result);
